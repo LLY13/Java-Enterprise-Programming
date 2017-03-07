@@ -1,0 +1,79 @@
+
+
+import java.io.File;
+
+import javax.swing.JFileChooser;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.text.Text;
+import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+public class Lab2 extends Application{
+	WebView webView = new WebView();
+	TextField text = new TextField();
+	Stage primaryStage;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		// TODO Auto-generated method stub
+		BorderPane root = new BorderPane();
+		root.setCenter(webView);
+		webView.getEngine().load("http://www.unitec.ac.nz/");
+		
+		
+		Label label = new Label("URL: ");
+		text.setPrefColumnCount(50);
+		Button btnGo = new Button("Go");
+		btnGo.setOnMouseClicked(this::btnGoClick);
+		Button btnRefresh = new Button("Refresh");
+		btnRefresh.setOnMouseClicked(this::btnRefreshClick);
+		Button btnHome = new Button("Home");
+		btnHome.setOnMouseClicked(this::btnHomeClick);
+		Button btnOpen = new Button("Open");
+		btnOpen.setOnMouseClicked(this::btnOpenClick);
+		HBox hBox = new HBox();
+		hBox.setPadding(new Insets(5, 5, 10, 10));
+		hBox.setSpacing(10);
+		hBox.getChildren().addAll(label,text,btnGo,btnRefresh,btnHome,btnOpen);
+		hBox.setHgrow(text, Priority.ALWAYS);
+		root.setTop(hBox);
+		
+		Scene scene = new Scene(root);
+		primaryStage.setScene(scene);
+		primaryStage.setTitle("My web viewer ");
+		primaryStage.show();	
+		
+
+ 	}
+	void btnGoClick(MouseEvent e){
+		webView.getEngine().load(text.getText());
+	}
+	void btnRefreshClick(MouseEvent e){
+		webView.getEngine().load(webView.getEngine().getLocation());
+	}
+	void btnHomeClick(MouseEvent e){
+		webView.getEngine().load("http://www.unitec.ac.nz/");
+		}
+	void btnOpenClick(MouseEvent e){
+		File file = new FileChooser().showOpenDialog(primaryStage);
+		webView.getEngine().load(file.toURI().toString());
+	}
+
+
+}
