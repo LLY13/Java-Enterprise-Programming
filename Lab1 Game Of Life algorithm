@@ -1,0 +1,55 @@
+
+public class Algorithm {
+	static int row = 60;
+	static int col = 40;
+	public static int[][] cell = new int[row][col];            //0 means dead   1 means alive
+
+	
+//	static{
+//    for(int i=0;i<row;i++){
+//		for(int j=0;j<col;j++){
+//			Algotithm.cell[i][j] = (int)(Math.random() * 2);  //initial status   
+//			}
+//		}
+//	}
+	
+	public static void generate() throws Exception{              //method to change one time
+		int[][] temcell = new int[row][col];                 //temcell to store former status
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){
+				temcell[i][j] = cell[i][j];  //initial status   
+			}
+		}
+		
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){             
+				if(neighbors(i, j) < 2||neighbors(i, j) > 3){        //rules
+					temcell[i][j] = 0;
+				}else if(neighbors(i, j) == 3){
+					temcell[i][j] = 1;
+				}else {
+					temcell[i][j] = cell[i][j];
+				}
+			}
+		}	
+		cell = temcell;
+	}
+	
+	public static int neighbors(int row, int col) throws Exception{
+		int num = 0;
+		for(int i=row-1;i<=row+1;i++){
+			for(int j=col-1;j<=col+1;j++){
+				try {
+					if(cell[i][j] == 1 && (i != row || j!=col) ){
+						num++;
+					}
+					
+				} catch (ArrayIndexOutOfBoundsException e) {
+					// TODO: handle exception
+					continue;
+				}
+			}
+		}	
+		return num;
+	}
+}
