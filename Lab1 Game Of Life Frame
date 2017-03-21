@@ -1,0 +1,269 @@
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class FrameMain extends JFrame{
+
+	static java.util.Timer timer = new java.util.Timer();  
+	JPanel btnPanel = new JPanel();
+	
+	public FrameMain(){
+		final Point point = new Point();
+
+		
+		JPanel panel = new JPanel(){
+			public void paint(Graphics g) {		
+				for(int i=0;i<Algorithm.row;i++){
+					for(int j=0;j<Algorithm.col;j++){
+						if(Algorithm.cell[i][j] == 1){
+							g.setColor(Color.BLACK);
+							g.fillRect(i*20, j*20, 20, 20);
+						}
+						if(Algorithm.cell[i][j] == 0){
+							g.setColor(Color.WHITE);
+							g.fillRect(i*20, j*20, 20, 20);
+						}
+						}
+					for(int j=0;j<=Algorithm.col;j++){
+						g.setColor(Color.BLACK);
+						g.drawLine(0, j*20, Algorithm.row*20, j*20);
+					}
+					for(int j=0;j<=Algorithm.row;j++){
+						g.setColor(Color.BLACK);
+						g.drawLine(j*20, 0, j*20 , Algorithm.col*20);
+					}
+				}
+			}
+		};
+		
+		
+		
+		panel.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent event) {
+				// TODO Auto-generated method stub
+				point.x = event.getX();
+				point.y = event.getY();
+				Algorithm.cell[point.x/20][point.y/20] = 1;
+				repaint();
+			}
+		});
+		
+		Button buttonRun = new Button("Run");
+		buttonRun.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				timer.schedule(new TimerTask() {
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						try {
+							Algorithm.generate();
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						repaint();
+					}
+				}, 0, 200);
+			}
+		});
+		
+		Button buttonStop = new Button("Stop");
+		buttonStop.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				timer.cancel();
+				timer = new java.util.Timer();  
+			}
+		});
+
+		Button buttonClear = new Button("Clear");
+		buttonClear.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+			    for(int i=0;i<Algorithm.row;i++){
+					for(int j=0;j<Algorithm.col;j++){
+						Algorithm.cell[i][j] = 0;  //initial status   
+						}
+					}
+			    panel.repaint();
+			}
+		});
+		Button buttonStep = new Button("Step");
+		buttonStep.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				try {
+					Algorithm.generate();
+					repaint();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		
+		btnPanel.add(buttonRun);
+		btnPanel.add(buttonStep);
+		btnPanel.add(buttonStop);
+		btnPanel.add(buttonClear);
+		btnPanel.setLayout(new FlowLayout());
+		getContentPane().setLayout(new BorderLayout());
+		getContentPane().add(panel,BorderLayout.CENTER);
+		getContentPane().add(btnPanel,BorderLayout.NORTH);
+		
+		setLocation(270, 100);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		setSize(1220,900);
+	}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FrameMain main = new FrameMain();
+		
+	}
+
+}
