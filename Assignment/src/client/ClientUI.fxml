@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="659.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ClientController">
+   <children>
+      <Pane layoutX="7.0" layoutY="8.0" prefHeight="701.0" prefWidth="1095.0">
+         <children>
+            <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="300.0" prefWidth="91.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btnColor1" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: black;" />
+                  <Button mnemonicParsing="false" onAction="#btnColor4" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #f40000;" textFill="#f40000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#btnColor3" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #ddd9d9;" textFill="#ddd9d9" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#btnColor5" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #001dff;" textFill="#001dff" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#btnColor2" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #6b5c5c;" textFill="#6b5c5c" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#btnColor6" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #03fb52;" textFill="#03fb52" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#btnColor7" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #ff9203;" textFill="#ff9203" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#btnColor8" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #ff00f6;" textFill="#ff00f6" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#btnColor9" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #02b6f8;" textFill="#02b6f8" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#btnColor10" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #beee88;" textFill="#beee88" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#btnColor11" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #ffb9fc;" textFill="#ffb9fc" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#btnColor12" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #f8f018;" textFill="#f8f018" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#btnColor13" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #1cab42;" textFill="#1cab42" GridPane.rowIndex="6" />
+                  <Button mnemonicParsing="false" onAction="#btnColor14" prefHeight="56.0" prefWidth="45.0" style="-fx-background-color: #ffffff;" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
+            <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="350.0" prefHeight="334.0" prefWidth="91.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btnSizePlus" prefHeight="100.0" prefWidth="41.0" text="+">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnSizeMiuns" prefHeight="102.0" prefWidth="45.0" text="-" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnClear" prefHeight="87.0" prefWidth="45.0" text="Clear" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnLine" prefHeight="83.0" prefWidth="45.0" text="Line" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnRect" prefHeight="80.0" prefWidth="45.0" text="Rect" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnOval" prefHeight="80.0" prefWidth="45.0" text="Oval" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnEraser" prefHeight="81.0" prefWidth="45.0" text="Eraser" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#btnSave" prefHeight="81.0" prefWidth="45.0" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+               </children>
+            </GridPane>
+            <TextArea fx:id="textArea" layoutX="126.0" layoutY="486.0" prefHeight="127.0" prefWidth="678.0" />
+            <TextField fx:id="textFild" layoutX="126.0" layoutY="622.0" prefHeight="62.0" prefWidth="506.0" />
+            <Button fx:id="btnSend" layoutX="648.0" layoutY="622.0" mnemonicParsing="false" onAction="#btnSendAcion" prefHeight="62.0" prefWidth="156.0" text="Send" />
+            <TextField fx:id="nickname" layoutX="829.0" layoutY="14.0" prefHeight="50.0" prefWidth="246.0" />
+            <Button fx:id="btnConfirm" layoutX="910.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnConfirmAction" prefHeight="43.0" prefWidth="91.0" text="Confirm" />
+            <ListView fx:id="listView" layoutX="829.0" layoutY="207.0" onMouseClicked="#privateChat" prefHeight="325.0" prefWidth="246.0" />
+            <Label layoutX="829.0" layoutY="136.0" text="OtherUsers:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="829.0" layoutY="177.0" text="(Double Click to Private-Chat)" />
+            <GridPane gridLinesVisible="true" layoutX="126.0" layoutY="14.0" style="-fx-background-color: white;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Canvas fx:id="canvas" height="431.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" onMouseReleased="#mouseReleased" style="visibility: true;" width="678.0" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
