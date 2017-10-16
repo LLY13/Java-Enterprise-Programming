@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 21:20:27 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Class" table="CLASS" schema="PUBLIC" catalog="PUBLIC">
+        <id name="classCode" type="int">
+            <column name="CLASS_CODE" />
+            <generator class="assigned" />
+        </id>
+        <property name="classRoom" type="string">
+            <column name="CLASS_ROOM" />
+        </property>
+        <property name="classSection" type="string">
+            <column name="CLASS_SECTION" />
+        </property>
+        <property name="classStartDate" type="string">
+            <column name="CLASS_START_DATE" />
+        </property>
+        <property name="classTime" type="string">
+            <column name="CLASS_TIME" />
+        </property>
+        <property name="crsCode" type="java.lang.Integer">
+            <column name="CRS_CODE" />
+        </property>
+    </class>
+</hibernate-mapping>

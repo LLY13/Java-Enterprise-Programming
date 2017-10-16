@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-5-4 21:20:27 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Enrolment" table="ENROLMENT" schema="PUBLIC" catalog="PUBLIC">
+        <id name="classCode" type="int">
+            <column name="CLASS_CODE" />
+            <generator class="assigned" />
+        </id>
+        <property name="enComments" type="string">
+            <column name="EN_COMMENTS" />
+        </property>
+        <property name="enGrade" type="string">
+            <column name="EN_GRADE" />
+        </property>
+        <property name="stuId" type="java.lang.Integer">
+            <column name="STU_ID" />
+        </property>
+    </class>
+</hibernate-mapping>
